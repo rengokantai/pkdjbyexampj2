@@ -25,8 +25,13 @@ SECRET_KEY = 'h@(gw1q@z2en%_*_e2kz_dg%ki^#fr(2%-jax30jbf&h4xmzbg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#I did not implement twitter login
 AUTHENTICATION_BACKENDS =('django.contrib.auth.backends.ModelBackend',
-                          'account.authentication.EmailAuthBackend',)
+                          'account.authentication.EmailAuthBackend',
+                          'social.backends.facebook.Facebook2OAuth2',
+                          'social.backends.twitter.TwitterOAuth',
+                          'social.backends.google.GoogleOAuth2',
+                          )
 
 ALLOWED_HOSTS = []
 
@@ -35,6 +40,15 @@ LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 EMAIL_BACKEND = 'django.core.email.backends.console.EmailBackend'
 
+SOCIAL_AUTH_FACEBOOK_KEY ='790820234397668'
+SOCIAL_AUTH_FACEBOOK_SECRET = ''
+SOCIAL_AUTH_FACEBOOK_SCOPE =['email']
+
+SOCIAL_AUTH_TWITTER_KEY=''
+SOCIAL_AUTH_TWITTER_SECRET=''
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='901334990668-obo0hhjra42ilgonbhef2047uehej1a9.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET=''
 
 # Application definition
 
@@ -45,6 +59,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
     'account',
 )
 
