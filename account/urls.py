@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # url(r'^login/$',views.user_login,name='login'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
+    url(r'^register/$',views.register, name='register'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
     url(r'^logout-then-login/$', 'django.contrib.auth.views.logout_then_login', name='logout_then_login'),
     url(r'^password-change/$', 'django.contrib.auth.views.password_change', name='password_change'),
@@ -14,4 +15,5 @@ urlpatterns = [
     url(r'^password-reset/confirm/(?P<uidb64>[-\w]+)/(?P<token>[-\w]+)/$', 'django.contrib.auth.views.password_reset_confirm', name='password_reset_confirm'),
     url(r'^password-reset/complete/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
     url(r'^$', views.dashboard, name='dashboard'),
+    url(r'^edit/$', views.edit, name='edit'),
 ]
