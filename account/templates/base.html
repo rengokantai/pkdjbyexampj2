@@ -7,6 +7,16 @@
 </head>
 <body>
 <div id="header">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">
+        {{ message|safe }}
+            <a href="#">x</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
     <span class="logo">Bookmarks</span>
     {% if request.user.is_authenticated %}
         <ul class="menu">
