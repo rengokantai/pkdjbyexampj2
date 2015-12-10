@@ -4,6 +4,10 @@
 
 {% block content %}
     <h1>Dashboard</h1>
+    {% with total_images_created=request.user.images_created_count %}
+        You marked {{ total_images_created }}image{{ total_images_created|pluralize }}
+    {% endwith %}
+Drag button to bookmark toolbar <a href="javascript:{% include "bookmarklet-launcher.js" %}" class="button">Bookmark</a>
     <p>change profile <a href="{% url 'edit' %}">here</a></p>
     <p>change password <a href="{% url 'password_change' %}">here</a></p>
     <p></p>
